@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{panier.nom}} {% endblock %}
+
+{% block body %}
+<table class="table">
+    <thead>
+    <tr>
+        <th>{{ 'panier.nom'|trans }}</th>
+        <th>{{ 'panier.quantite'|trans }}</th>
+        <th>{{ 'panier.prix'|trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr>
+
+        </tr>
+
+    </tbody>
+</table>
+  {{ form(form_panier) }}
+{% endblock %}

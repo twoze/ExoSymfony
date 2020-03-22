@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ produit.nom }}{% endblock %}
+
+{% block body %}
+    <h1>Fiche produit</h1>
+
+	<h2>{{ produit.nom }}</h2>
+	<p>{{ produit.qte }} produits en stock</p>
+	<p>{{ produit.prix }}€</p>
+	{% if produit.photo is not null %}
+		<img src="{{ asset('uploads/' ~ produit.photo) }}">
+	{% endif %}
+
+	<h3>Modifier {{produit.nom}}</h3>
+	{{ form(form_edit) }}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+    <h1>Votre panier</h1>
+    {% if paniers is not empty %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{ 'Nom'|trans }}</th>
+                    <th>{{ 'prix'|trans }}</th>
+                    <th>{{ 'Quantite'|trans }}</th>
+                    <th>{{ 'Action'|trans }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for paniers in un_produit %}
+                    <tr>
+                        <td>
+    <a href="{{ path('mon_panier', {'id': panier.produit.id}) }}">
+                            {{ panier.nom }}
+                            </a>
+                        </td>
+                        <td>{{ 'panier.prix'|trans }}</td>
+                        <td>{{ 'panier.quantite'|trans }}</td>
+                        <td>{{ 'panier.date_ajout'|trans)}}</td>
+                        <td>
+                            <a href="{{ path('delete_produit', {'id':panier.un_produit.id}) }}">
+                                {{ 'Supprimer' |trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+           </tbody>
+            <tbody>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td>
+                        {% set somme = 0 %}
+                        {% for panier in paniers %}
+                            {% set somme = panier.produit.prix * panier.quantite %}
+                        {% endfor %}
+                        {{somme}}€
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>Il n'y a aucun produit</p>
+    {% endif %}
+
+    {{ form(form_panier) }}
+
+{% endblock %}

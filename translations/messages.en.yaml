@@ -1,0 +1,21 @@
+produit :
+  titre : 'Product list'
+  nom: 'Name'
+  quantite: 'Quantity'
+  prix: 'Price'
+  photo: 'Picture'
+  action: 'Action'
+
+panier:
+  titre : 'Cart'
+  nom : 'Name'
+  quantitie: 'Quantity'
+  prix : 'price'
+
+Nom : 'Name'
+Quantite : 'Quantity'
+Prix : 'Price'
+Photo : 'picture'
+Sauvegarder : 'Save'
+
+Supprimer : 'Delete'
